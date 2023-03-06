@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:weatherapp_starter_project/controllers/global_controller.dart';
 
@@ -14,6 +15,16 @@ class _HomeScreenState extends State<HomeScreen> {
   final GlobalController globalController = Get.put(GlobalController(),permanent: true);
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: SafeArea(
+        child: Obx(()=>globalController.checkLoading().isTrue ? Center(child: CircularProgressIndicator(),)
+            :ListView(
+          scrollDirection: Axis.vertical,
+          children: [
+          ],
+        )
+        ),
+      ),
+    );
   }
 }
