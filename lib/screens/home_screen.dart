@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:weatherapp_starter_project/controllers/global_controller.dart';
+import 'package:weatherapp_starter_project/widgets/header_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -20,7 +21,9 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Obx(()=>globalController.checkLoading().isTrue ? Center(child: CircularProgressIndicator(),)
             :ListView(
           scrollDirection: Axis.vertical,
-          children: [
+          children: const [
+            SizedBox(height: 20,),
+            HeaderWidget(),
           ],
         )
         ),
