@@ -11,6 +11,9 @@ class GlobalController extends GetxController{
   final RxDouble _lattitude = 0.0.obs;
   final weatherData = WeatherData().obs;
 
+  WeatherData getData(){
+    return weatherData.value;
+  }
 
   //instance for them to be called
 RxBool checkLoading()=> _isLoading;
