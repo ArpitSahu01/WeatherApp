@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:weatherapp_starter_project/api/fetch_weather.dart';
+import 'package:weatherapp_starter_project/models/weather_data.dart';
 
 class GlobalController extends GetxController{
 
@@ -7,6 +9,7 @@ class GlobalController extends GetxController{
   final RxBool _isLoading = true.obs;
   final RxDouble _longitude = 0.0.obs;
   final RxDouble _lattitude = 0.0.obs;
+  final weatherData = WeatherData().obs;
 
 
   //instance for them to be called
@@ -51,7 +54,12 @@ RxDouble getLattitude()=> _lattitude;
               // update our lattitude and longitude
               _lattitude.value = value.latitude;
               _longitude.value = value.longitude;
-              _isLoading.value = false;
+              // calling our weather api
+              return FeatchWeatherAPI().processData(_lattitude.value, _longitude.value).then((value){
+                weatherData.value = value;
+                _isLoading.value = false;
+              });
+
             }
     );
 
