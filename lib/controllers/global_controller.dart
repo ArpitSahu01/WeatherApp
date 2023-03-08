@@ -10,6 +10,7 @@ class GlobalController extends GetxController{
   final RxDouble _longitude = 0.0.obs;
   final RxDouble _lattitude = 0.0.obs;
   final weatherData = WeatherData().obs;
+  final RxInt _currentIndex = 0.obs;
 
   WeatherData getData(){
     return weatherData.value;
@@ -24,6 +25,8 @@ RxDouble getLattitude()=> _lattitude;
   void onInit() async{
   if(_isLoading.isTrue){
     getLocation();
+  }else{
+    getIndex();
   }
     super.onInit();
   }
@@ -67,6 +70,11 @@ RxDouble getLattitude()=> _lattitude;
     );
 
 
+  }
+
+
+  RxInt getIndex(){
+  return _currentIndex;
   }
 
 
