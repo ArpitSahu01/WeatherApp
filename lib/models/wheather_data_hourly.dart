@@ -67,7 +67,4 @@ class Weather{
     'id':id,
     'main':main,
     'description':description,
-    'icon':icon,
-  };
-
-}
+    'icon':icon,};}

@@ -5,3 +5,4 @@ String apiURL(var lat,var lon) {
   url = "https://api.openweathermap.org/data/3.0/onecall?lat=$lat&lon=$lon&appid=$apiKey&exclude=minutely&units=metric";
   return url;
 }
+
