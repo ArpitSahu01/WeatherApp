@@ -1,6 +1,6 @@
-# weatherapp_starter_project
+# Weather App
 
-A new Flutter project.
+Hi, This app helps the user to get the information of weather, temperature, wind speed, humidity, weather of whole week and many more.
 
 ## Getting Started
 
